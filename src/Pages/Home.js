@@ -1,5 +1,11 @@
 import React, { useContext, useEffect } from 'react'
-import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native'
+import {
+    Text,
+    View,
+    Image,
+    TouchableOpacity,
+    ScrollView
+} from 'react-native'
 import { page, button } from '../assests/styles'
 import { ContextApp } from '../context/ContextApp'
 
@@ -14,24 +20,29 @@ const Home = ({ navigation }) => {
     return (
         <ScrollView style={page.body}>
             <View>
-                    <Image
-                        style={{ height: 500 }}
-                        source={{
-                            uri: url
-                        }}
-                    />
+                <Image
+                    style={{ height: 500 }}
+                    source={{
+                        uri: url
+                    }}
+                />
                 <TouchableOpacity
                     onPress={() => navigation.navigate('Catalogue')}
                     style={[button.btn, button.btnTransparent]}>
                     <Text style={{ textAlign: 'center', color: 'white' }}>Catálogo</Text>
                 </TouchableOpacity>
-                { pendingData &&
+                {pendingData &&
                     <TouchableOpacity
-                    onPress={() => navigation.navigate('PendingList')}
-                    style={[button.btn, button.btnTurquoise]}>
-                    <Text style={{ textAlign: 'center', color: 'white' }}>Pendientes</Text>
-                </TouchableOpacity>
+                        onPress={() => navigation.navigate('PendingList')}
+                        style={[button.btn, button.btnTurquoise]}>
+                        <Text style={{ textAlign: 'center', color: 'white' }}>Pendientes</Text>
+                    </TouchableOpacity>
                 }
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('AddAnime')}
+                    style={[button.btn, button.btnTurquoise]}>
+                    <Text style={{ textAlign: 'center', color: 'white' }}>Añadir anime</Text>
+                </TouchableOpacity>
 
             </View>
         </ScrollView>

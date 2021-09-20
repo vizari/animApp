@@ -33,9 +33,7 @@ const Catalogue = ({ navigation }) => {
     const context = useContext(ContextApp);
     const { pending, setPending } = context;
     const { loading, error, data } = useQuery(ANIMEDATA);
-    const showPendingButton = pending.length >= 1 ? true : false;
-
-    console.log('data', data)
+    const showPendingButton = pending.length >= 1  && !loading ? true : false;
 
     if (error) {
         console.warn(error);
@@ -129,7 +127,6 @@ const Catalogue = ({ navigation }) => {
                                             onPress={() => {
                                                 () => navigation.navigate('PendingList')
                                                 setPending(pending => [...pending, item])
-                                                console.log(item.id)
                                             }
                                             }
                                             activeOpacity={0.5}

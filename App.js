@@ -15,6 +15,7 @@ import Home from './src/Pages/Home';
 import Catalogue from './src/Pages/catalogue/Catalogue';
 import PendingList from './src/Pages/PendingList';
 import ContextAppProvider from './src/context/ContextApp';
+import AddAnime from './src/Pages/AddAnime';
 
 
 const Stack = createNativeStackNavigator();
@@ -34,6 +35,7 @@ const App = () => {
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Catalogue" component={Catalogue} />
             <Stack.Screen name="PendingList" component={PendingList} />
+            <Stack.Screen name="AddAnime" component={AddAnime} />
           </Stack.Navigator>
         </NavigationContainer>
       </ApolloProvider>
