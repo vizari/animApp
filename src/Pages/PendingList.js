@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
     ScrollView,
     View,
@@ -6,23 +6,23 @@ import {
     TouchableOpacity,
     Image
 } from 'react-native';
-import { grid, text, page, button } from '../assests/styles';
+import { grid, text, page  } from '../assests/styles';
 import { ContextApp } from '../context/ContextApp';
 import { getStatus, notImagen } from './catalogue/helper';
-
 
 const PendingList = () => {
     const context = useContext(ContextApp);
     const { pending, setPending } = context;
+
     return (
 
         <ScrollView style={page.body}>
             <View>
                 <View style={{ marginBottom: 0, alignItems: 'center' }}>
                     {pending.map((item, index) => {
-                        const typeImg = item.bannerImage || item 
-                        const imageUrl = typeImg ? typeImg: notImagen;
-                        
+                        const typeImg = item.bannerImage || item;
+                        const imageUrl = typeImg ? typeImg : notImagen;
+
                         return (
                             <TouchableOpacity
                                 style={{
@@ -32,10 +32,12 @@ const PendingList = () => {
                                     padding: 10
                                 }}
                                 key={index}>
-                                {imageUrl &&<Image
-                                    source={{ uri: `${imageUrl}` }}
-                                    style={{ height: 250, width: 360 }}
-                                />}
+                                {imageUrl &&
+                                    <Image
+                                        source={{ uri: `${imageUrl}` }}
+                                        style={{ height: 250, width: 360 }}
+                                    />
+                                }
 
                                 <View
                                     style={{
